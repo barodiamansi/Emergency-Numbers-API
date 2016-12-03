@@ -1,6 +1,9 @@
+# coding: UTF-8
+
 EmergencyNumbersApi::Application.routes.draw do
   # Api definition
-    namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/'  do
-      # We are going to list our resources here
-    end
+  scope controller: 'emergency_controllers/emergency_numbers' do
+    # For getting the emergency numbers of all the countries.
+    match 'emergency_numbers' => :show_numbers, via: :get
+  end
 end
